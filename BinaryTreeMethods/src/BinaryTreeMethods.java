@@ -68,13 +68,13 @@ public final class BinaryTreeMethods {
         assert x != null : "Violation of: x is not null";
 
         boolean isIn = false;
-        if (t.root() != null) {
+        if (t.size() > 0) {
             BinaryTree<T> left = new BinaryTree1();
             BinaryTree<T> right = new BinaryTree1();
             T root = t.disassemble(left, right);
-            isIn = isInTree(left, x);
-            isIn = isInTree(right, x);
-            if (root.equals(x)) {
+            boolean isInLeft = isInTree(left, x);
+            boolean isInRight = isInTree(right, x);
+            if (root.equals(x) || isInLeft || isInRight) {
                 isIn = true;
             }
             t.assemble(root, left, right);
