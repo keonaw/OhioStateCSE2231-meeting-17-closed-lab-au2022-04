@@ -64,7 +64,7 @@ public final class BinaryTreeMethods {
             T root = t.disassemble(left, right);
             isIn = isInTree(left, x);
             isIn = isInTree(right, x);
-            if (t.root().equals(x)) {
+            if (root.equals(x)) {
                 isIn = true;
             }
             t.assemble(root, left, right);
