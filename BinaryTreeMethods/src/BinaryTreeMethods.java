@@ -45,6 +45,7 @@ public final class BinaryTreeMethods {
                 height += height(right);
             }
         }
+        t.assemble(root, left, right);
         return height;
     }
 
