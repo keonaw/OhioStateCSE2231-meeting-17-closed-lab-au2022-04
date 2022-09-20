@@ -1,4 +1,5 @@
 import components.binarytree.BinaryTree;
+import components.binarytree.BinaryTree1;
 import components.simplereader.SimpleReader;
 import components.simplereader.SimpleReader1L;
 import components.simplewriter.SimpleWriter;
@@ -65,10 +66,20 @@ public final class BinaryTreeMethods {
         assert t != null : "Violation of: t is not null";
         assert x != null : "Violation of: x is not null";
 
-        // TODO - fill in body
+        boolean isIn = false;
+        if (t.root() != null) {
+            BinaryTree<T> left = new BinaryTree1();
+            BinaryTree<T> right = new BinaryTree1();
+            T root = t.disassemble(left, right);
+            isIn = isInTree(left, x);
+            isIn = isInTree(right, x);
+            if (root.equals(x)) {
+                isIn = true;
+            }
+            t.assemble(root, left, right);
+        }
 
-        // This line added just to make the component compilable.
-        return false;
+        return isIn;
     }
 
     /**
