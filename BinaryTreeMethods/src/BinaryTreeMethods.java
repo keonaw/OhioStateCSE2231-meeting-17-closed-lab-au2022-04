@@ -59,14 +59,14 @@ public final class BinaryTreeMethods {
 
         boolean isIn = false;
         if (t.root() != null) {
-            if (t.root().equals(x)) {
-                isIn = true;
-            }
             BinaryTree<T> left = new BinaryTree1();
             BinaryTree<T> right = new BinaryTree1();
             T root = t.disassemble(left, right);
             isIn = isInTree(left, x);
             isIn = isInTree(right, x);
+            if (t.root().equals(x)) {
+                isIn = true;
+            }
             t.assemble(root, left, right);
         }
 
