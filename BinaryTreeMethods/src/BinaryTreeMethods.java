@@ -31,11 +31,20 @@ public final class BinaryTreeMethods {
      */
     public static <T> int height(BinaryTree<T> t) {
         assert t != null : "Violation of: t is not null";
-
-        // TODO - fill in body
-
-        // This line added just to make the component compilable.
-        return 0;
+        BinaryTree<T> left = t.newInstance();
+        BinaryTree<T> right = t.newInstance();
+        int height = 0;
+        T root = t.root();
+        if (t.size() > 0) {
+            height++;
+            t.disassemble(left, right);
+            if (height(left) > height(right)) {
+                height += height(left);
+            } else if (height(left) < height(right)) {
+                height += height(right);
+            }
+        }
+        return height;
     }
 
     /**
