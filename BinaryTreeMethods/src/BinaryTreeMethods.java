@@ -56,10 +56,14 @@ public final class BinaryTreeMethods {
         assert t != null : "Violation of: t is not null";
         assert x != null : "Violation of: x is not null";
 
-        // TODO - fill in body
+        boolean isIn = false;
+        for (T i : t) {
+            if (i.equals(x)) {
+                isIn = true;
+            }
+        }
 
-        // This line added just to make the component compilable.
-        return false;
+        return isIn;
     }
 
     /**
